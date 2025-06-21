@@ -15,3 +15,16 @@ p {
     padding: 10px;
     text-align: center;
 }
+
+
+.left-box{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.right-box{
+    display: flex;
+    justify-content: end;
+}
