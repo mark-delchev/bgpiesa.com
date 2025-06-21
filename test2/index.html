@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <title>bgpiesa.com</title>
+        <meta charset="UTF-8">
+        <!-- Added viewport meta tag for responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Fonts: Montserrat for headings, Open Sans for body text -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            /* Universal Box-Sizing */
+            * {
+                box-sizing: border-box;
+            }
+
+            /* Body Styling */
+            body {
+                background-color: #F0F2F5; /* A slightly cooler, very light gray */
+                margin: 0;
+                padding: 0;
+                line-height: 1.7; /* Improved readability */
+                color: #333; /* Darker text for better contrast */
+                font-family: 'Open Sans', sans-serif; /* Applied Open Sans to body */
+            }
+
+            /* Header Styling */
+            .site-header {
+                /* Unique gradient background */
+                background: linear-gradient(to right, #2c3e50, #34495e);
+                color: white;
+                padding: 30px 0; /* More vertical padding */
+                text-align: center; /* Center the text */
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* More prominent shadow for depth */
+                position: relative; /* For potential future elements */
+                overflow: hidden; /* Ensure gradient is contained */
+                border-bottom-left-radius: 15px; /* Subtle unique curve */
+                border-bottom-right-radius: 15px;
+            }
+
+            .site-header h1 {
+                margin: 0;
+                font-family: 'Montserrat', sans-serif; /* Applied Montserrat to H1 */
+                font-size: 3.5em; /* Larger for more impact */
+                letter-spacing: 3px; /* Increased letter spacing for sophistication */
+                text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* Text shadow for depth */
+                transition: font-size 0.4s ease-in-out, color 0.4s ease-in-out, transform 0.4s ease-in-out; /* Smooth transition */
+            }
+
+            .site-header h1:hover {
+                color: #FF6B6B; /* Vibrant accent color on hover */
+                font-size: 3.7em; /* Slightly larger on hover */
+                transform: scale(1.02); /* Subtle zoom effect */
+            }
+
+            /* Main Container Layout (using Flexbox for flexibility) */
+            .container {
+                display: flex;
+                flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+                max-width: 1280px; /* Slightly wider max-width */
+                margin: 40px auto; /* More top/bottom margin for breathing room */
+                padding: 0 30px; /* Horizontal padding for smaller screens */
+                gap: 40px; /* Increased space between flex items */
+                align-items: flex-start; /* Align items to the top */
+            }
+
+            /* Section and Aside Styling */
+            .about-us-section { /* Formerly .center-box */
+                flex: 3; /* Takes up more space */
+                min-width: 320px; /* Ensures it doesn't get too small */
+                background-color: white;
+                padding: 40px; /* Increased padding */
+                border-radius: 12px; /* More rounded corners */
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Softer, wider shadow */
+                border: 1px solid #e0e0e0; /* Subtle light border */
+                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+            }
+
+            .about-us-section:hover {
+                transform: translateY(-5px); /* Lift effect on hover */
+                box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            }
+
+            .sidebar { /* Formerly .right-box */
+                flex: 1; /* Takes up less space */
+                min-width: 250px; /* Ensures it doesn't get too small */
+                background-color: white;
+                padding: 40px; /* Increased padding */
+                border-radius: 12px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+                border: 1px solid #e0e0e0;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .sidebar:hover {
+                transform: translateY(-5px); /* Lift effect on hover */
+                box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            }
+
+            /* Heading 2 Styling */
+            h2 {
+                font-family: 'Montserrat', sans-serif; /* Applied Montserrat to H2 */
+                font-size: 2.2em; /* Larger for better hierarchy */
+                color: #2C3E50; /* Consistent with header color */
+                margin-top: 0; /* Remove default top margin */
+                margin-bottom: 20px; /* More space below heading */
+                border-bottom: 3px solid #FF6B6B; /* Thicker, vibrant accent underline */
+                padding-bottom: 12px; /* More space between text and underline */
+                text-align: left;
+            }
+
+            /* Paragraph Styling */
+            p {
+                font-size: 1.15em; /* Slightly larger for readability */
+                color: #555; /* Softer black */
+                margin-bottom: 1.2em; /* More spacing between paragraphs */
+                text-align: left; /* Default text alignment */
+                line-height: 1.8; /* Increased line height for better readability */
+            }
+
+            /* Responsive Adjustments */
+            @media (max-width: 1024px) { /* Adjust for larger tablets */
+                .container {
+                    padding: 0 25px;
+                    gap: 30px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column; /* Stack items vertically on smaller screens */
+                    padding: 0 20px;
+                    margin: 30px auto;
+                }
+
+                .about-us-section,
+                .sidebar {
+                    margin-bottom: 30px; /* Add more space between stacked sections */
+                    width: 100%; /* Full width */
+                    padding: 30px;
+                }
+
+                .site-header {
+                    padding: 25px 0;
+                }
+
+                .site-header h1 {
+                    font-size: 2.5em; /* Adjust font size for smaller screens */
+                    letter-spacing: 2px;
+                }
+
+                h2 {
+                    font-size: 1.8em;
+                }
+
+                p {
+                    font-size: 1.05em;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .site-header h1 {
+                    font-size: 2em; /* Even smaller for very small screens */
+                    letter-spacing: 1px;
+                }
+
+                h2 {
+                    font-size: 1.6em;
+                }
+
+                p {
+                    font-size: 1em;
+                }
+
+                .container {
+                    padding: 0 15px;
+                }
+
+                .about-us-section,
+                .sidebar {
+                    padding: 25px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <h1>bgpiesa.com</h1>
+        </header>
+
+        <main class="container">
+            <section class="about-us-section"> <!-- Renamed for clarity -->
+                <h2>Кои сме ние?</h2>
+                <p>Здравейте! Ние сме bgpiesa.com, вашето ново място за вдъхновение и творчество. Тук ще откриете уникални идеи, съвети и ресурси, които да ви помогнат във вашите проекти и начинания. Нашата мисия е да предоставим качествено съдържание, което да ви образова, забавлява и мотивира.</p>
+                <p>Независимо дали сте начинаещ или експерт, ние вярваме, че винаги има нещо ново за научаване. Ето защо поддържаме нашата библиотека с информация актуална и разнообразна. Присъединете се към нашата общност и нека творим заедно!</p>
+            </section>
+
+            <aside class="sidebar"> <!-- Changed to aside, implying secondary content -->
+                <h3>Последни новини</h3>
+                <p>Очаквайте скоро нови статии и секции с интересно съдържание. Работим усилено, за да ви предложим най-доброто!</p>
+                <p>Следете ни в социалните мрежи за ежедневни актуализации и интеракции с нашата общност.</p>
+            </aside>
+        </main>
+
+    </body>
+</html>
