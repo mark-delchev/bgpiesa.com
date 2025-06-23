@@ -1,206 +1,215 @@
 <!DOCTYPE html>
 <html lang="bg">
-    <head>
-        <title>bgpiesa.com</title>
-        <meta charset="UTF-8">
-        <!-- Added viewport meta tag for responsive design -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google Fonts: Montserrat for headings, Open Sans for body text -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-        <style>
-            /* Universal Box-Sizing */
-            * {
-                box-sizing: border-box;
-            }
+<head>
+    <title>bgpiesa.com</title>
+    <meta charset="UTF-8">
+    <!-- Viewport meta tag for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom CSS to set Inter font family as default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-indigo-100 min-h-screen flex flex-col items-center p-4 text-gray-800">
 
-            /* Body Styling */
-            body {
-                background-color: #F0F2F5; /* A slightly cooler, very light gray */
-                margin: 0;
-                padding: 0;
-                line-height: 1.7; /* Improved readability */
-                color: #333; /* Darker text for better contrast */
-                font-family: 'Open Sans', sans-serif; /* Applied Open Sans to body */
-            }
+    <!-- Overall Website Wrapper -->
+    <div class="overall-wrapper bg-white shadow-2xl rounded-3xl w-full max-w-7xl mx-auto flex flex-col overflow-hidden">
 
-            /* Header Styling */
-            .site-header {
-                /* Unique gradient background */
-                background: linear-gradient(to right, #2c3e50, #34495e);
-                color: white;
-                padding: 30px 0; /* More vertical padding */
-                text-align: center; /* Center the text */
-                box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* More prominent shadow for depth */
-                position: relative; /* For potential future elements */
-                overflow: hidden; /* Ensure gradient is contained */
-                border-bottom-left-radius: 15px; /* Subtle unique curve */
-                border-bottom-right-radius: 15px;
-            }
-
-            .site-header h1 {
-                margin: 0;
-                font-family: 'Montserrat', sans-serif; /* Applied Montserrat to H1 */
-                font-size: 3.5em; /* Larger for more impact */
-                letter-spacing: 3px; /* Increased letter spacing for sophistication */
-                text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* Text shadow for depth */
-                transition: font-size 0.4s ease-in-out, color 0.4s ease-in-out, transform 0.4s ease-in-out; /* Smooth transition */
-            }
-
-            .site-header h1:hover {
-                color: #FF6B6B; /* Vibrant accent color on hover */
-                font-size: 3.7em; /* Slightly larger on hover */
-                transform: scale(1.02); /* Subtle zoom effect */
-            }
-
-            /* Main Container Layout (using Flexbox for flexibility) */
-            .container {
-                display: flex;
-                flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-                max-width: 1280px; /* Slightly wider max-width */
-                margin: 40px auto; /* More top/bottom margin for breathing room */
-                padding: 0 30px; /* Horizontal padding for smaller screens */
-                gap: 40px; /* Increased space between flex items */
-                align-items: flex-start; /* Align items to the top */
-            }
-
-            /* Section and Aside Styling */
-            .about-us-section { /* Formerly .center-box */
-                flex: 3; /* Takes up more space */
-                min-width: 320px; /* Ensures it doesn't get too small */
-                background-color: white;
-                padding: 40px; /* Increased padding */
-                border-radius: 12px; /* More rounded corners */
-                box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Softer, wider shadow */
-                border: 1px solid #e0e0e0; /* Subtle light border */
-                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-            }
-
-            .about-us-section:hover {
-                transform: translateY(-5px); /* Lift effect on hover */
-                box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-            }
-
-            .sidebar { /* Formerly .right-box */
-                flex: 1; /* Takes up less space */
-                min-width: 250px; /* Ensures it doesn't get too small */
-                background-color: white;
-                padding: 40px; /* Increased padding */
-                border-radius: 12px;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-                border: 1px solid #e0e0e0;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            .sidebar:hover {
-                transform: translateY(-5px); /* Lift effect on hover */
-                box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-            }
-
-            /* Heading 2 Styling */
-            h2 {
-                font-family: 'Montserrat', sans-serif; /* Applied Montserrat to H2 */
-                font-size: 2.2em; /* Larger for better hierarchy */
-                color: #2C3E50; /* Consistent with header color */
-                margin-top: 0; /* Remove default top margin */
-                margin-bottom: 20px; /* More space below heading */
-                border-bottom: 3px solid #FF6B6B; /* Thicker, vibrant accent underline */
-                padding-bottom: 12px; /* More space between text and underline */
-                text-align: left;
-            }
-
-            /* Paragraph Styling */
-            p {
-                font-size: 1.15em; /* Slightly larger for readability */
-                color: #555; /* Softer black */
-                margin-bottom: 1.2em; /* More spacing between paragraphs */
-                text-align: left; /* Default text alignment */
-                line-height: 1.8; /* Increased line height for better readability */
-            }
-
-            /* Responsive Adjustments */
-            @media (max-width: 1024px) { /* Adjust for larger tablets */
-                .container {
-                    padding: 0 25px;
-                    gap: 30px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .container {
-                    flex-direction: column; /* Stack items vertically on smaller screens */
-                    padding: 0 20px;
-                    margin: 30px auto;
-                }
-
-                .about-us-section,
-                .sidebar {
-                    margin-bottom: 30px; /* Add more space between stacked sections */
-                    width: 100%; /* Full width */
-                    padding: 30px;
-                }
-
-                .site-header {
-                    padding: 25px 0;
-                }
-
-                .site-header h1 {
-                    font-size: 2.5em; /* Adjust font size for smaller screens */
-                    letter-spacing: 2px;
-                }
-
-                h2 {
-                    font-size: 1.8em;
-                }
-
-                p {
-                    font-size: 1.05em;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .site-header h1 {
-                    font-size: 2em; /* Even smaller for very small screens */
-                    letter-spacing: 1px;
-                }
-
-                h2 {
-                    font-size: 1.6em;
-                }
-
-                p {
-                    font-size: 1em;
-                }
-
-                .container {
-                    padding: 0 15px;
-                }
-
-                .about-us-section,
-                .sidebar {
-                    padding: 25px;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <header class="site-header">
-            <h1>bgpiesa.com</h1>
+        <!-- Header/Navigation Bar -->
+        <header class="bg-gradient-to-r from-purple-700 to-indigo-700 text-white p-6 rounded-t-3xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Site Logo/Title -->
+            <div class="flex items-center gap-3">
+                <i class="fas fa-feather-alt text-4xl text-purple-200"></i>
+                <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-white drop-shadow-md">
+                    bgpiesa.com
+                </h1>
+            </div>
+            <!-- Main Navigation Links -->
+            <nav>
+                <ul class="flex flex-wrap justify-center md:justify-end gap-6 text-lg font-medium">
+                    <li><a href="#" class="hover:text-purple-200 transition duration-200 ease-in-out flex items-center gap-2"><i class="fas fa-home"></i> Начало</a></li>
+                    <li><a href="#" class="hover:text-purple-200 transition duration-200 ease-in-out flex items-center gap-2"><i class="fas fa-users"></i> Автори</a></li>
+                    <li><a href="#" class="hover:text-purple-200 transition duration-200 ease-in-out flex items-center gap-2"><i class="fas fa-book-open"></i> Произведения</a></li>
+                    <li><a href="#" class="hover:text-purple-200 transition duration-200 ease-in-out flex items-center gap-2"><i class="fas fa-envelope"></i> Контакти</a></li>
+                </ul>
+            </nav>
         </header>
 
-        <main class="container">
-            <section class="about-us-section"> <!-- Renamed for clarity -->
-                <h2>Кои сме ние?</h2>
-                <p>Здравейте! Ние сме bgpiesa.com, вашето ново място за вдъхновение и творчество. Тук ще откриете уникални идеи, съвети и ресурси, които да ви помогнат във вашите проекти и начинания. Нашата мисия е да предоставим качествено съдържание, което да ви образова, забавлява и мотивира.</p>
-                <p>Независимо дали сте начинаещ или експерт, ние вярваме, че винаги има нещо ново за научаване. Ето защо поддържаме нашата библиотека с информация актуална и разнообразна. Присъединете се към нашата общност и нека творим заедно!</p>
-            </section>
+        <!-- Hero Section -->
+        <section class="relative bg-indigo-500 text-white py-20 px-8 text-center overflow-hidden">
+            <!-- Background overlay with subtle pattern or gradient -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://placehold.co/1200x600/667EEA/ffffff?text=Creative+Background');"></div>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-xl animate-fade-in-down">
+                    Открийте Красотата на Българското Творчество
+                </h2>
+                <p class="text-xl md:text-2xl mb-8 leading-relaxed animate-fade-in-up">
+                    Вашата врата към свят на думи, идеи и вдъхновение.
+                </p>
+                <a href="#" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out animate-bounce-in">
+                    Разгледайте колекцията <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </section>
 
-            <aside class="sidebar"> <!-- Changed to aside, implying secondary content -->
-                <h3>Последни новини</h3>
-                <p>Очаквайте скоро нови статии и секции с интересно съдържание. Работим усилено, за да ви предложим най-доброто!</p>
-                <p>Следете ни в социалните мрежи за ежедневни актуализации и интеракции с нашата общност.</p>
+        <!-- Main Content Area with Sidebar -->
+        <div class="flex flex-col lg:flex-row p-8 lg:p-12 gap-8 lg:gap-12">
+
+            <!-- Main Content Section -->
+            <main class="flex-grow lg:w-3/4">
+                <!-- About Us Section -->
+                <section class="bg-white rounded-xl shadow-lg p-8 mb-8 border border-gray-100">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b-4 border-purple-500 pb-3 inline-block">Кои сме ние?</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        <strong class="text-purple-600">bgpiesa.com</strong> е онлайн платформа, посветена на популяризирането и съхраняването на българското литературно наследство. Ние вярваме, че всяка дума и всяка история имат значение и заслужават да бъдат споделени с по-широка аудитория. Нашата мисия е да създадем леснодостъпна дигитална библиотека за всички ценители на българската писмена реч, както и да подкрепим млади и утвърдени автори.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Тук ще откриете богатство от поезия, проза, драми и есета, подбрани с внимание и любов към изкуството. Присъединете се към нашата общност и се потопете в безкрайния свят на българското слово.
+                        <span class="block mt-4 text-2xl font-semibold text-purple-600 text-center">hey hey ;)</span>
+                    </p>
+                </section>
+
+                <!-- Featured Works Section -->
+                <section class="bg-white rounded-xl shadow-lg p-8 mb-8 border border-gray-100">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b-4 border-indigo-500 pb-3 inline-block">Избрани Произведения</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Work Card 1 -->
+                        <div class="bg-gray-50 rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300 ease-in-out">
+                            <img src="https://placehold.co/300x200/9333EA/ffffff?text=Книга+1" alt="Placeholder image for a book" class="rounded-md mb-4 w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Заглавие на произведението 1</h3>
+                            <p class="text-purple-600 text-sm mb-3">от Известен Автор А.</p>
+                            <p class="text-gray-600 text-base leading-snug mb-4">Кратко описание на произведението, което да заинтригува читателя и да го накара да иска да прочете повече.</p>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1">Прочети повече <i class="fas fa-chevron-right text-xs"></i></a>
+                        </div>
+                        <!-- Work Card 2 -->
+                        <div class="bg-gray-50 rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300 ease-in-out">
+                            <img src="https://placehold.co/300x200/4F46E5/ffffff?text=Поезия+2" alt="Placeholder image for a poem" class="rounded-md mb-4 w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Стихосбирка от Млад Автор</h3>
+                            <p class="text-purple-600 text-sm mb-3">от Млад Автор Б.</p>
+                            <p class="text-gray-600 text-base leading-snug mb-4">Колекция от емоционални стихотворения, които пренасят читателя в света на лирическите преживявания.</p>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1">Прочети повече <i class="fas fa-chevron-right text-xs"></i></a>
+                        </div>
+                        <!-- Work Card 3 -->
+                        <div class="bg-gray-50 rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300 ease-in-out">
+                            <img src="https://placehold.co/300x200/9333EA/ffffff?text=Разказ+3" alt="Placeholder image for a short story" class="rounded-md mb-4 w-full h-48 object-cover">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Къс Разказ: Изгубеният свят</h3>
+                            <p class="text-purple-600 text-sm mb-3">от Класически Автор В.</p>
+                            <p class="text-gray-600 text-base leading-snug mb-4">Интригуваща история, която изследва темите за приключенията и откривателството в непознати земи.</p>
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1">Прочети повече <i class="fas fa-chevron-right text-xs"></i></a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action Section -->
+                <section class="bg-purple-600 text-white rounded-xl shadow-lg p-8 text-center mb-8 border border-purple-500">
+                    <h2 class="text-3xl font-bold mb-4">Имате ли нещо за споделяне?</h2>
+                    <p class="text-lg mb-6">Присъединете се към нашите автори и публикувайте своето творчество.</p>
+                    <a href="#" class="inline-block bg-white text-purple-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition duration-300 ease-in-out">
+                        Станете Автор <i class="fas fa-pencil-alt ml-2"></i>
+                    </a>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/4 bg-purple-50 rounded-xl shadow-md p-6 h-fit border border-purple-100">
+                <h3 class="text-2xl font-bold text-purple-800 mb-6 border-b-2 border-purple-300 pb-3">Полезни Връзки</h3>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="#" class="block px-4 py-2 rounded-lg text-purple-800 font-medium hover:bg-purple-200 hover:text-purple-900 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 flex items-center gap-2">
+                            <i class="fas fa-stream"></i> Всички Категории
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 rounded-lg text-purple-800 font-medium hover:bg-purple-200 hover:text-purple-900 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 flex items-center gap-2">
+                            <i class="fas fa-star"></i> Топ Произведения
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 rounded-lg text-purple-800 font-medium hover:bg-purple-200 hover:text-purple-900 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 flex items-center gap-2">
+                            <i class="fas fa-pen-nib"></i> Най-нови Автори
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 rounded-lg text-purple-800 font-medium hover:bg-purple-200 hover:text-purple-900 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 flex items-center gap-2">
+                            <i class="fas fa-question-circle"></i> Често Задавани Въпроси
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search Bar Placeholder -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-purple-800 mb-4">Търсене</h3>
+                    <div class="relative">
+                        <input type="text" placeholder="Търсете..." class="w-full p-3 pl-10 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 ease-in-out text-gray-700">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Latest News/Blog Placeholder -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold text-purple-800 mb-4 border-b-2 border-purple-300 pb-3">Последни Новини</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li>
+                            <a href="#" class="block hover:text-purple-600 transition duration-200">Нова функционалност на сайта! <span class="block text-sm text-gray-500">15 Юни, 2025</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="block hover:text-purple-600 transition duration-200">Интервю с известен български писател <span class="block text-sm text-gray-500">10 Юни, 2025</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="block hover:text-purple-600 transition duration-200">Открит конкурс за млади таланти <span class="block text-sm text-gray-500">01 Юни, 2025</span></a>
+                        </li>
+                    </ul>
+                </div>
             </aside>
-        </main>
+        </div>
 
-    </body>
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-10 px-8 rounded-b-3xl">
+            <div class="max-w-6xl mx-auto text-center md:flex md:justify-between md:items-center">
+                <div class="mb-6 md:mb-0">
+                    <p>&copy; 2025 bgpiesa.com. Всички права запазени.</p>
+                    <p class="text-sm text-gray-400 mt-1">Създадено с любов към българската литература.</p>
+                </div>
+                <div class="flex justify-center gap-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-200 ease-in-out"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-200 ease-in-out"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-200 ease-in-out"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white transition duration-200 ease-in-out"><i class="fas fa-rss text-xl"></i></a>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 text-sm mt-8">
+                <ul class="flex flex-wrap justify-center gap-4 md:gap-8">
+                    <li><a href="#" class="hover:underline">Политика за поверителност</a></li>
+                    <li><a href="#" class="hover:underline">Условия за ползване</a></li>
+                    <li><a href="#" class="hover:underline">Карта на сайта</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
 </html>
