@@ -13,10 +13,6 @@ body {
 
 /* Header Styling */
 .header, .about {
-    height: 1%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 1%;
     background-color: #5B21B6; /* Deep Purple */
     color: #ffffff;
     padding: 1.2rem 2rem; /* Comfortable padding */
@@ -25,10 +21,10 @@ body {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
-    border-radius: 10px;
 }
 
 .about {
+    margin-right: 50%;
     color: black;
     flex-direction: column;
     background-color: #f8f8f8;
@@ -65,4 +61,16 @@ body {
 .header .nav-list a:focus {
     background-color: #7C3AED; /* Lighter purple on hover */
     transform: translateY(-2px); /* Slight lift effect */
+}
+
+.main-content {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Ensures no space between header and about */
+    border-radius: 20px; /* Applies rounded corners to the whole block */
+    overflow: hidden; /* Crucial for rounded corners to work correctly with children */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Applies shadow to the whole block */
 }
