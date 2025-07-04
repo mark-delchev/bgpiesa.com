@@ -29,6 +29,7 @@ body {
     flex-direction: column;
     background-color: #f8f8f8;
     align-items: baseline;
+    border-radius: 10px;
 }
 
 /* Site Title/Logo */
