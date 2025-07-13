@@ -80,6 +80,7 @@ body {
 
 /* Shelf specific styles */
 .book-shelf-container {
+    border-top: 5px double #5B21B6;
     display: flex;
     align-items: center;
     justify-content: center;
