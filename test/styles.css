@@ -29,7 +29,9 @@ body {
     flex-direction: column;
     background-color: #f8f8f8;
     align-items: baseline;
-    border-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+
 }
 
 /* Site Title/Logo */
@@ -74,4 +76,94 @@ body {
     border-radius: 20px; /* Applies rounded corners to the whole block */
     overflow: hidden; /* Crucial for rounded corners to work correctly with children */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Applies shadow to the whole block */
+}
+
+/* Shelf specific styles */
+.book-shelf-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative; /* For positioning arrows */
+    overflow: hidden; /* Hide overflowing books */
+}
+
+.book-shelf {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling for navigation */
+    padding: 10px; /* Padding for the books inside the shelf */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.book-shelf::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.book {
+    flex: 0 0 auto; /* Do not grow, do not shrink, base on content */
+    width: 150px; /* Fixed width for books */
+    height: 200px; /* Fixed height for books */
+    background-color: #A78BFA; /* Medium purple for books */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.book:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.book-title {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.book-author {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(91, 33, 182, 0.8); /* Dark purple, slightly transparent */
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 2.5rem; /* Large arrows */
+    border-radius: 50%; /* Circular buttons */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10; /* Ensure arrows are above books */
+}
+
+.nav-arrow:hover {
+    background-color: #7C3AED; /* Lighter purple on hover */
+    transform: translateY(-50%) scale(1.05);
+}
+
+.nav-arrow.left {
+    left: 20px;
+}
+
+.nav-arrow.right {
+    right: 20px;
 }
