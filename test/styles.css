@@ -86,7 +86,6 @@ body {
     width: 100%;
     padding: 2rem 0;
     background-color: #f8f8f8;
-    border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative; /* For positioning arrows */
     overflow: hidden; /* Hide overflowing books */
