@@ -167,3 +167,8 @@ body {
 .nav-arrow.right {
     right: 20px;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
