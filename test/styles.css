@@ -172,3 +172,30 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+/*Authors section*/
+
+img {
+    width: 150px;
+    height: 200px;
+}
+
+.image-board {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.image-board img {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    filter: grayscale(100%);
+    /*transition: filter 0.3s ease-in-out;*/
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.image-board img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
