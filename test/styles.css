@@ -175,11 +175,6 @@ a {
 
 /*Authors section*/
 
-img {
-    width: 150px;
-    height: 200px;
-}
-
 .image-board {
     display: flex;
     width: 100%;
@@ -187,6 +182,8 @@ img {
 }
 
 .image-board img {
+    width: 150px;
+    height: 200px;
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 10px;
@@ -198,4 +195,14 @@ img {
 .image-board img:hover {
     filter: grayscale(0%);
     transform: scale(1.1);
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-item p {
+    margin-left: 20px;
+    text-align: center;     
 }
