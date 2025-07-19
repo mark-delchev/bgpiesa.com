@@ -24,7 +24,7 @@ body {
 }
 
 .about {
-    margin-right: 50%;
+    margin-right: 0;
     color: black;
     flex-direction: column;
     background-color: #f8f8f8;
@@ -32,6 +32,10 @@ body {
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
 
+}
+
+.about p {
+    margin-top: 10px;
 }
 
 /* Site Title/Logo */
