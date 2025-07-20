@@ -22,15 +22,10 @@
         <div class="about" id="books-page">
             <h1>Произведения</h1>
             <div class="author-filter">
-                <label for="authorFilter">Филтрирай по автор:</label>
-                <select id="authorFilter" onchange="filterBooks()">
-                    <option value="all">Всички</option>
-                    <option value="Станислав Стратиев">Станислав Стратиев</option>
-                    <option value="Йордан Йовков">Йордан Йовков</option>
-                    <option value="Иван Вазов">Иван Вазов</option>
-                    <option value="Петко Тодоров">Петко Тодоров</option>
-                </select>
+                <input type="text" id="authorSearch" oninput="filterBooks()" placeholder="Търси по автор">
+                <span class="search-icon">🔍</span>
             </div>
+
         </div>
 
         <div class="book-shelf-container">
@@ -83,23 +78,25 @@
         }
 
         function filterBooks(authorName = null) {
-    const selectedAuthor = authorName || document.getElementById('authorFilter').value;
-    const books = document.querySelectorAll('#bookShelf .book');
+        const input = document.getElementById('authorSearch');
+        const searchValue = (authorName || input.value).toLowerCase().trim();
+        const books = document.querySelectorAll('#bookShelf .book');
 
-    books.forEach(book => {
-        const author = book.getAttribute('data-author');
-        if (selectedAuthor === 'all' || author === selectedAuthor) {
-            book.parentElement.style.display = 'inline-block';
-        } else {
-            book.parentElement.style.display = 'none';
-        }
+        books.forEach(book => {
+            const author = book.getAttribute('data-author').toLowerCase();
+            if (searchValue === 'all' || searchValue === '' || author.includes(searchValue)) {
+                book.parentElement.style.display = 'inline-block';
+            } else {
+                book.parentElement.style.display = 'none';
+            }
         });
 
-        // Update the dropdown if authorName came from the URL
+        // If author came from URL, pre-fill the input
         if (authorName) {
-            document.getElementById('authorFilter').value = authorName;
+            input.value = authorName;
         }
         }
+
         window.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const author = urlParams.get('author');
