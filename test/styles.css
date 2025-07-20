@@ -98,6 +98,7 @@ body {
 }
 
 .book-shelf {
+    width: 1020px;
     display: flex;
     gap: 20px;
     overflow-x: scroll; /* Enable horizontal scrolling */
