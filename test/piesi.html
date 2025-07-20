@@ -19,15 +19,17 @@
             </nav>
         </header>
 
-        <div class="about">
+        <div class="about" id="books-page">
             <h1>Произведения</h1>
-            <label for="authorFilter">Филтрирай по автор:</label>
-            <select id="authorFilter" onchange="filterBooks()">
-                <option value="all">Всички</option>
-                <option value="Станислав Стратиев">Станислав Стратиев</option>
-                <option value="Йордан Йовков">Йордан Йовков</option>
-                <option value="Иван Вазов">Иван Вазов</option>
-            </select>
+            <div class="author-filter">
+                <label for="authorFilter">Филтрирай по автор:</label>
+                <select id="authorFilter" onchange="filterBooks()">
+                    <option value="all">Всички</option>
+                    <option value="Станислав Стратиев">Станислав Стратиев</option>
+                    <option value="Йордан Йовков">Йордан Йовков</option>
+                    <option value="Иван Вазов">Иван Вазов</option>
+                </select>
+            </div>
         </div>
 
         <div class="book-shelf-container">

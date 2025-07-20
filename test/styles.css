@@ -38,6 +38,7 @@ body {
     margin-top: 10px;
 }
 
+
 /* Site Title/Logo */
 .header .site-title {
     font-size: 2.2rem; /* Larger title */
@@ -209,4 +210,20 @@ a {
 .image-item p {
     margin-left: 20px;
     text-align: center;     
+}
+
+.about#books-page {
+    flex-direction: row;
+}
+
+.author-filter {
+    font-size: 1.1em;
+}
+
+.author-filter select {
+    color: white;
+    background-color: #A78BFA;
+    font-size: 1.1em;
+    border: 2px solid black;
+    border-radius: 10px;
 }
