@@ -220,10 +220,21 @@ a {
     font-size: 1.1em;
 }
 
-.author-filter select {
+.author-filter input {
+    width: 250px;
     color: white;
     background-color: #A78BFA;
-    font-size: 1.1em;
-    border: 2px solid black;
-    border-radius: 10px;
+    font-size: 1.15em;
+    border: 2px solid #A78BFA;
+    border-radius: 25px;
+    text-align: center;
+}
+
+#authorSearch::placeholder {
+    color: #DDDDDD;
+}
+
+.author-filter input:focus {
+    outline: none;
+    border: 2px solid #8d76d3; /* Same as your original border */
 }
