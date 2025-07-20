@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="bg">
-    <head>
-        <title>bgpiesa.com</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head>
+    <title>bgpiesa.com</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-content">
+        <header class="header">
+            <div class="site-title">bgpiesa.com</div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Начало</a></li>
+                    <li><a href="avtori.html">Автори</a></li>
+                    <li><a href="piesi.html">Произведения</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <body>
-        <div class="main-content">
-            <header class="header">
-                <div class="site-title">bgpiesa.com</div>
-                <nav>
-                    <ul class="nav-list">
-                        <li><a href="index.html">Начало</a></li>
-                        <li><a href="avtori.html">Автори</a></li>
-                        <li><a href="piesi.html">Произведения</a></li>
-                        <li><a href="#">Контакти</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="about">
-                <h1>Произведения</h1> 
-            </div>
-            <div class="book-shelf-container">
-                <button class="nav-arrow left" onclick="scrollShelf(-300)">&#10094;</button> <!-- Left Arrow -->
-                <div class="book-shelf" id="bookShelf">
-                    <a href="./piesi/Балкански синдром - Станислав Стратиев.pdf">
-                        <div class="book">
-                            <span class="book-title">Балкански синдром</span>
-                            <span class="book-author">Станислав Стратиев</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="book-shelf" id="bookShelf">
-                    <a href="./piesi/Албена - Йордан Йовков.pdf">
-                        <div class="book">
-                            <span class="book-title">Албена</span>
-                            <span class="book-author">Йордан Йовков</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="book-shelf" id="bookShelf">
-                    <a href="./piesi/Хъшове - Иван Вазов.pdf">
-                        <div class="book">
-                            <span class="book-title">Хъшове</span>
-                            <span class="book-author">Иван Вазов</span>
-                        </div>
-                    </a>
-                </div>
-                <button class="nav-arrow right" onclick="scrollShelf(300)">&#10095;</button> <!-- Right Arrow -->
-            </div>
+        <div class="about">
+            <h1>Произведения</h1>
+            <label for="authorFilter">Филтрирай по автор:</label>
+            <select id="authorFilter" onchange="filterBooks()">
+                <option value="all">Всички</option>
+                <option value="Станислав Стратиев">Станислав Стратиев</option>
+                <option value="Йордан Йовков">Йордан Йовков</option>
+                <option value="Иван Вазов">Иван Вазов</option>
+            </select>
         </div>
-        <script>
+
+        <div class="book-shelf-container">
+            <button class="nav-arrow left" onclick="scrollShelf(-300)">&#10094;</button>
+
+            <div class="book-shelf" id="bookShelf">
+                <a href="./piesi/Балкански синдром - Станислав Стратиев.pdf">
+                    <div class="book" data-author="Станислав Стратиев">
+                        <span class="book-title">Балкански синдром</span>
+                        <span class="book-author">Станислав Стратиев</span>
+                    </div>
+                </a>
+                <a href="./piesi/Албена - Йордан Йовков.pdf">
+                    <div class="book" data-author="Йордан Йовков">
+                        <span class="book-title">Албена</span>
+                        <span class="book-author">Йордан Йовков</span>
+                    </div>
+                </a>
+                <a href="./piesi/Хъшове - Иван Вазов.pdf">
+                    <div class="book" data-author="Иван Вазов">
+                        <span class="book-title">Хъшове</span>
+                        <span class="book-author">Иван Вазов</span>
+                    </div>
+                </a>
+            </div>
+
+            <button class="nav-arrow right" onclick="scrollShelf(300)">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
         function scrollShelf(scrollOffset) {
             const shelf = document.getElementById('bookShelf');
             shelf.scrollBy({
@@ -59,7 +66,33 @@
                 behavior: 'smooth'
             });
         }
-        </script>
-    </body>
 
+        function filterBooks(authorName = null) {
+    const selectedAuthor = authorName || document.getElementById('authorFilter').value;
+    const books = document.querySelectorAll('#bookShelf .book');
+
+    books.forEach(book => {
+        const author = book.getAttribute('data-author');
+        if (selectedAuthor === 'all' || author === selectedAuthor) {
+            book.parentElement.style.display = 'inline-block';
+        } else {
+            book.parentElement.style.display = 'none';
+        }
+        });
+
+        // Update the dropdown if authorName came from the URL
+        if (authorName) {
+            document.getElementById('authorFilter').value = authorName;
+        }
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const author = urlParams.get('author');
+
+        if (author) {
+            filterBooks(author);
+        }
+        });
+    </script>
+</body>
 </html>
