@@ -218,16 +218,23 @@ a {
 }
 
 .author-filter {
-    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    background-color: #A78BFA;
+    border: 2px solid #A78BFA;
+    border-radius: 25px;
+    overflow: hidden;
+    width: fit-content;
+    padding-right: 10px; /* spacing for the icon */
 }
 
 .author-filter input {
-    width: 250px;
+    border: none;
+    background-color: transparent;
+    padding: 10px 10px 10px 20px;
+    font-size: 1.1em;
     color: white;
-    background-color: #A78BFA;
-    font-size: 1.15em;
-    border: 2px solid #A78BFA;
-    border-radius: 25px;
+    width: 250px;
     text-align: center;
 }
 
@@ -237,5 +244,23 @@ a {
 
 .author-filter input:focus {
     outline: none;
-    border: 2px solid #8d76d3; /* Same as your original border */
+}
+
+.search-icon {
+    font-size: 1.1em;
+    cursor: pointer;
+    color: #5B21B6;
+    background-color: transparent;
+    padding: 5px;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+    border-color: #5B21B6;
+}
+
+.search-icon:hover {
+    color: #3B0CA0;
+    background-color: #8d76d3;
+    border-radius: 50%;
+    border-color: #3B0CA0;
+
 }
