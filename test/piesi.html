@@ -21,15 +21,16 @@
 
         <div class="about" id="books-page">
             <h1>Произведения</h1>
-            <div class="author-filter">
-                <input type="text" id="authorSearch" placeholder="Търси по автор">
-                <button class="search-icon" onclick="filterBooksAuthor()">🔍</button>
+            <div class="search">
+                <div class="search-bar">
+                    <input type="text" id="searchBar" placeholder="Търси..." />
+                    <button class="search-icon" onclick="unifiedSearch()">🔍</button>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="searchMode" value="author" checked> Автор</label>
+                    <label><input type="radio" name="searchMode" value="book"> Книга</label>
+                </div>
             </div>
-            <div class="book-filter">
-                <input type="text" id="bookSearch" placeholder="Търси по произведение">
-                <button class="search-icon" onclick="filterBooksName()">🔍</button>
-            </div>
-
         </div>
 
         <div class="book-shelf-container">
@@ -146,7 +147,16 @@
         }
         });
 
-        
+        function unifiedSearch() {
+            const selectedMode = document.querySelector('input[name="searchMode"]:checked').value;
+            const searchValue = document.getElementById('searchBar').value;
+
+            if (selectedMode === 'author') {
+                filterBooksAuthor(searchValue);
+            } else if (selectedMode === 'book') {
+                filterBooksName(searchValue);
+            }
+        }
     </script>
 </body>
 </html>
