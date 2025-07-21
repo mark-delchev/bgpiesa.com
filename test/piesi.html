@@ -29,6 +29,7 @@
                 <div class="radio">
                     <label><input type="radio" name="searchMode" value="author" checked> Автор</label>
                     <label><input type="radio" name="searchMode" value="book"> Книга</label>
+                    <button onclick="document.getElementById('searchBar').value=''; unifiedSearch();">Изчисти търсенето</button>
                 </div>
             </div>
         </div>
@@ -101,7 +102,7 @@
         }
 
         function filterBooksAuthor(authorName = null) {
-            const input = document.getElementById('authorSearch');
+            const input = document.getElementById('searchBar');
             const searchValue = (authorName || input.value).toLowerCase().trim();
             const books = document.querySelectorAll('#bookShelf .book');
 
@@ -122,7 +123,7 @@
 
         function filterBooksName(bookName = null) {
             console.log("filterBooksName called");
-            const input = document.getElementById('bookSearch');
+            const input = document.getElementById('searchBar');
             const searchValue = (bookName || input.value).toLowerCase().trim();
             const books = document.querySelectorAll('#bookShelf .book');
 

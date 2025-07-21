@@ -284,3 +284,19 @@ a {
     border-color: #3B0CA0;
 
 }
+
+
+.radio button {
+    transition: all 0.2s ease;
+    background-color: #A78BFA;
+    border: 2px solid #5B21B6;
+    border-radius: 25px;
+    width: fit-content;
+    cursor: pointer;
+    color: white;
+    padding: 3px;
+}
+
+.radio button:hover {
+    background-color: #8d76d3; 
+}
