@@ -96,17 +96,17 @@
         }
 
         function filterBooks(authorName = null) {
-        const input = document.getElementById('authorSearch');
-        const searchValue = (authorName || input.value).toLowerCase().trim();
-        const books = document.querySelectorAll('#bookShelf .book');
+            const input = document.getElementById('authorSearch');
+            const searchValue = (authorName || input.value).toLowerCase().trim();
+            const books = document.querySelectorAll('#bookShelf .book');
 
-        books.forEach(book => {
-            const author = book.getAttribute('data-author').toLowerCase();
-            if (searchValue === 'all' || searchValue === '' || author.includes(searchValue)) {
-                book.parentElement.style.display = 'inline-block';
-            } else {
-                book.parentElement.style.display = 'none';
-            }
+            books.forEach(book => {
+                const author = book.getAttribute('data-author').toLowerCase();
+                if (searchValue === 'all' || searchValue === '' || author.includes(searchValue)) {
+                    book.parentElement.style.display = 'inline-block';
+                } else {
+                    book.parentElement.style.display = 'none';
+                }
         });
 
         // If author came from URL, pre-fill the input
