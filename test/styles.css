@@ -215,9 +215,10 @@ a {
 
 .about#books-page {
     flex-direction: row;
+    
 }
 
-.author-filter {
+.author-filter, .book-filter {
     display: flex;
     align-items: center;
     background-color: #A78BFA;
@@ -228,7 +229,7 @@ a {
     padding-right: 10px; /* spacing for the icon */
 }
 
-.author-filter input {
+.author-filter input, .book-filter input {
     border: none;
     background-color: transparent;
     padding: 10px 10px 10px 20px;
@@ -238,11 +239,11 @@ a {
     text-align: center;
 }
 
-#authorSearch::placeholder {
+#authorSearch::placeholder, #bookSearch::placeholder {
     color: #DDDDDD;
 }
 
-.author-filter input:focus {
+.author-filter input:focus, .book-filter input:focus {
     outline: none;
 }
 

@@ -23,7 +23,11 @@
             <h1>Произведения</h1>
             <div class="author-filter">
                 <input type="text" id="authorSearch" placeholder="Търси по автор">
-                <button class="search-icon" onclick="filterBooks()">🔍</button>
+                <button class="search-icon" onclick="filterBooksAuthor()">🔍</button>
+            </div>
+            <div class="book-filter">
+                <input type="text" id="bookSearch" placeholder="Търси по произведение">
+                <button class="search-icon" onclick="filterBooksName()">🔍</button>
             </div>
 
         </div>
@@ -33,49 +37,49 @@
 
             <div class="book-shelf" id="bookShelf">
                 <a href="./piesi/Балкански синдром - Станислав Стратиев.pdf">
-                    <div class="book" data-author="Станислав Стратиев">
+                    <div class="book" data-author="Станислав Стратиев" data-book="Балкански синдром">
                         <span class="book-title">Балкански синдром</span>
                         <span class="book-author">Станислав Стратиев</span>
                     </div>
                 </a>
                 <a href="./piesi/Албена - Йордан Йовков.pdf">
-                    <div class="book" data-author="Йордан Йовков">
+                    <div class="book" data-author="Йордан Йовков" data-book="Албена">
                         <span class="book-title">Албена</span>
                         <span class="book-author">Йордан Йовков</span>
                     </div>
                 </a>
                 <a href="./piesi/Хъшове - Иван Вазов.pdf">
-                    <div class="book" data-author="Иван Вазов">
+                    <div class="book" data-author="Иван Вазов" data-book="Хъшове">
                         <span class="book-title">Хъшове</span>
                         <span class="book-author">Иван Вазов</span>
                     </div>
                 </a>
                 <a href="./piesi/Боряна - Йордан Йовков.pdf">
-                    <div class="book" data-author="Йордан Йовков">
+                    <div class="book" data-author="Йордан Йовков" data-book="Боряна">
                         <span class="book-title">Боряна</span>
                         <span class="book-author">Йордан Йовков</span>
                     </div>
                 </a>
                 <a href="./piesi/Зидари - Петко Тодоров.pdf">
-                    <div class="book" data-author="Петко Тодоров">
+                    <div class="book" data-author="Петко Тодоров" data-book="Зидари">
                         <span class="book-title">Зидари</span>
                         <span class="book-author">Петко Тодоров</span>
                     </div>
                 </a>
                 <a href="./piesi/Невяста Боряна - Петко Тодоров.pdf">
-                    <div class="book" data-author="Петко Тодоров">
+                    <div class="book" data-author="Петко Тодоров" data-book="Невяста Боряна">
                         <span class="book-title">Невяста Боряна</span>
                         <span class="book-author">Петко Тодоров</span>
                     </div>
                 </a>
                 <a href="./piesi/Службогонци - Иван Вазов.pdf">
-                    <div class="book" data-author="Иван Вазов">
+                    <div class="book" data-author="Иван Вазов" data-book="Службогонци">
                         <span class="book-title">Службогонци</span>
                         <span class="book-author">Иван Вазов</span>
                     </div>
                 </a>
                 <a href="./piesi/Милионерът - Йордан Йовков.pdf">
-                    <div class="book" data-author="Йордан Йовков">
+                    <div class="book" data-author="Йордан Йовков" data-book="Милионерът">
                         <span class="book-title">Милионерът</span>
                         <span class="book-author">Йордан Йовков</span>
                     </div>
@@ -95,7 +99,7 @@
             });
         }
 
-        function filterBooks(authorName = null) {
+        function filterBooksAuthor(authorName = null) {
             const input = document.getElementById('authorSearch');
             const searchValue = (authorName || input.value).toLowerCase().trim();
             const books = document.querySelectorAll('#bookShelf .book');
@@ -108,21 +112,41 @@
                     book.parentElement.style.display = 'none';
                 }
         });
+    
+         // If author came from URL, pre-fill the input
+            if (authorName) {
+                input.value = authorName;
+            }
+        }
 
-        // If author came from URL, pre-fill the input
-        if (authorName) {
-            input.value = authorName;
+        function filterBooksName(bookName = null) {
+            console.log("filterBooksName called");
+            const input = document.getElementById('bookSearch');
+            const searchValue = (bookName || input.value).toLowerCase().trim();
+            const books = document.querySelectorAll('#bookShelf .book');
+
+            books.forEach(book => {
+                const bookName = book.getAttribute('data-book').toLowerCase();
+                if (searchValue === 'all' || searchValue === '' || bookName.includes(searchValue)) {
+                    book.parentElement.style.display = 'inline-block';
+                } else {
+                    book.parentElement.style.display = 'none';
+                }
+            });
         }
-        }
+
+           
 
         window.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const author = urlParams.get('author');
 
         if (author) {
-            filterBooks(author);
+            filterBooksAuthor(author);
         }
         });
+
+        
     </script>
 </body>
 </html>
