@@ -215,10 +215,23 @@ a {
 
 .about#books-page {
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     
 }
 
-.author-filter, .book-filter {
+#books-page h1 {
+    width: 40%;
+}
+
+.search {
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.search-bar {
     display: flex;
     align-items: center;
     background-color: #A78BFA;
@@ -229,7 +242,13 @@ a {
     padding-right: 10px; /* spacing for the icon */
 }
 
-.author-filter input, .book-filter input {
+.radio {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.search-bar input {
     border: none;
     background-color: transparent;
     padding: 10px 10px 10px 20px;
@@ -239,11 +258,11 @@ a {
     text-align: center;
 }
 
-#authorSearch::placeholder, #bookSearch::placeholder {
+#searchBar::placeholder {
     color: #DDDDDD;
 }
 
-.author-filter input:focus, .book-filter input:focus {
+.search-bar input:focus {
     outline: none;
 }
 
