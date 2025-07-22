@@ -81,6 +81,13 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Applies shadow to the whole block */
 }
 
+footer {
+    margin-top: 40px;
+    text-align: center;
+    background-color: #5B21B6;
+    color: #ffffff;
+}
+
 /* Shelf specific styles */
 .book-shelf-container {
     display: flex;
