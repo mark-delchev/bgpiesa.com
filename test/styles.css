@@ -96,13 +96,13 @@ footer {
     width: 100%;
     padding: 2rem 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    position: relative; /* For positioning arrows */
-    overflow: hidden; /* Hide overflowing books */
 }
 
 .book-shelf {
-    width: 1020px;
+    width: 1360px;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
     overflow-x: scroll; /* Enable horizontal scrolling */
     scroll-behavior: smooth; /* Smooth scrolling for navigation */
